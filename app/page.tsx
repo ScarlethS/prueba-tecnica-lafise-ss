@@ -12,6 +12,7 @@ export default function Home() {
           cardNumber="1234 5678 9012 3456"
           name="John Doe"
           expirationDate="12/25"
+          color="bg-secondary"
         />
         <CreditCard
           color="bg-blue-600"

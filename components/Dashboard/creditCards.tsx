@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface CreditCardProps {
   color?: string;
   cardNumber: string;
@@ -23,39 +25,23 @@ export const CreditCard = ({
 
   return (
     <div
-      className={`${color} rounded-2xl p-6 w-[353.53px] h-[208.36px] text-white relative shadow-lg`}
+      className={`${color} rounded-[5px] p-6 pt-2 w-[353.53px] h-[208.36px] text-white relative shadow-lg`}
     >
-      {/* Logo y nombre del banco */}
-      <div className="flex items-center mb-8">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 border-2 border-white rounded flex items-center justify-center">
-            <div className="grid grid-cols-2 gap-0.5">
-              <div className="w-1.5 h-1.5 bg-white rounded-sm"></div>
-              <div className="w-1.5 h-1.5 bg-white rounded-sm"></div>
-              <div className="w-1.5 h-1.5 bg-white rounded-sm"></div>
-              <div className="w-1.5 h-1.5 bg-white rounded-sm"></div>
-            </div>
-          </div>
-          <div className="text-sm font-bold">
-            <div>BANCO</div>
-            <div>LAFISE</div>
-          </div>
-        </div>
+      <div className="flex items-center mb-8 h-11 w-20 overflow-hidden rounded">
+        <Image src="/frame.png" alt="Banco" height={28} width={87} />
       </div>
-
-      {/* Número de tarjeta */}
-      <div className="text-xl font-mono tracking-wider mb-6">
+      <div className="text-xl font-mono tracking-wider mb-6 l">
         {maskCardNumber(cardNumber)}
       </div>
-
-      {/* Información del titular y fecha */}
-      <div className="flex justify-between items-end">
+      <div className="flex justify-between items-end pt-4">
         <div>
-          <div className="text-sm font-medium">{name}</div>
+          <div className="text-xs font-medium font-[lato]">{name}</div>
         </div>
         <div className="text-right">
-          <div className="text-xs opacity-80 mb-1">Expire date</div>
-          <div className="text-sm font-mono">{expirationDate}</div>
+          <div className="text-[7.8px] opacity-80 mb-1 font-[lato]">
+            Expire date
+          </div>
+          <div className="text-sm font-[lato]">{expirationDate}</div>
         </div>
       </div>
     </div>
