@@ -25,12 +25,12 @@ export const CreditCard = ({
 
   return (
     <div
-      className={`${color} rounded-[5px] p-6 pt-2 w-[353.53px] h-[208.36px] text-white relative shadow-lg`}
+      className={`w-full max-w-[353.53px] max-h-[208.36px] rounded-[5px] p-6 pt-2 text-white relative shadow-lg ${color}`}
     >
       <div className="flex items-center mb-8 h-11 w-20 overflow-hidden rounded">
         <Image src="/frame.png" alt="Banco" height={28} width={87} />
       </div>
-      <div className="text-xl font-mono tracking-wider mb-6 l">
+      <div className="mb-6 font-mono tracking-wider text-sm sm:text-xl">
         {maskCardNumber(cardNumber)}
       </div>
       <div className="flex justify-between items-end pt-4">

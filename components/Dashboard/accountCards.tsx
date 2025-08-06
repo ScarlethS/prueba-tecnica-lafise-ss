@@ -26,9 +26,9 @@ export const AccountCards = ({
   amount,
 }: AccountCardsProps) => {
   return (
-    <Card className="rounded shadow-md bg-white w-[353.53px] h-[150px]">
+    <Card className="w-full max-w-[353.53px] max-h-[150px] rounded shadow-md bg-white flex-shrink-0">
       <CardHeader>
-        <CardDescription className="text-xl font-semibold font-normal text-black">
+        <CardDescription className="text-xl font-normal  text-black">
           {type}NIO Cuenta
         </CardDescription>
         <div className="flex items-center gap-2">
