@@ -1,32 +1,25 @@
 "use client";
-
 import * as React from "react";
 import {
   AudioWaveform,
-  BookOpen,
-  Bot,
   Command,
-  Frame,
   GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
-  SquareTerminal,
+  ArrowLeftRight,
 } from "lucide-react";
-
-import { NavMain } from "@/components/nav-main";
 import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
+  useSidebar,
 } from "@/components/ui/sidebar";
+import Image from "next/image";
+import logo from "../public/logo.png";
+import ExchangeRate from "./Dashboard/exchangeRate";
 
-// This is sample data.
 const data = {
   user: {
     name: "shadcn",
@@ -50,125 +43,82 @@ const data = {
       plan: "Free",
     },
   ],
-  navMain: [
-    {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Models",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
-  ],
   projects: [
     {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
+      name: "Tablero",
+      url: "/",
+      icon: "/Tablero.png",
     },
     {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
+      name: "Transferir",
+      url: "/transaction",
+      icon: ArrowLeftRight,
     },
     {
-      name: "Travel",
-      url: "#",
-      icon: Map,
+      name: "Pagar",
+      url: " ",
+      icon: "/pagar.png",
+    },
+    {
+      name: "Mis transacciones",
+      url: "/history",
+      icon: "/mistransacciones.png",
+    },
+    {
+      name: "Gestionar",
+      url: "",
+      icon: "/gestiones.png",
+    },
+    {
+      name: "Cheques",
+      url: "",
+      icon: "/cheque.png",
+    },
+    {
+      name: "Paganet",
+      url: "",
+      icon: "/paganet.png",
+    },
+    {
+      name: "Administrar",
+      url: "",
+      icon: "/mistransacciones.png",
+    },
+    {
+      name: "Ahorro automatico",
+      url: "",
+      icon: "/ahorro.png",
+    },
+    {
+      name: "Configuración",
+      url: "",
+      icon: "/config.png",
     },
   ],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const { state } = useSidebar();
+  console.log("Sidebar state:", state);
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <div className="flex items-center group-data-[state=closed]/collapsible:hidden">
+          {state === "expanded" && (
+            <Image src={logo} alt="Team Logo" width={192} height={63} />
+          )}
+        </div>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
+        <ExchangeRate />
+        <div className="gap-y-2 border-t-1 py-6">
+          <p className="text-xs text-center">IP del Servidor: 190.432.574.23</p>
+          <p className="text-xs text-center">
+            Último acceso: 2021/11/21 13:32:11
+          </p>
+        </div>
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );

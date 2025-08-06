@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 
-type PaperProps = {
+interface PaperProps {
   children: React.ReactNode;
   title?: React.ReactNode;
   subtitle?: string;
@@ -11,7 +11,7 @@ type PaperProps = {
   routeRedirection?: string;
   Icon?: LucideIcon;
   customActions?: React.ReactNode;
-};
+}
 
 export const Paper = ({
   children,
@@ -21,7 +21,7 @@ export const Paper = ({
   backRoute = "..",
 }: PaperProps) => {
   return (
-    <div className="container mx-auto p-4 pt-0 sm:px-8  bg-background rounded-xl">
+    <div className="container mx-auto p-4 pt-0 sm:px-8 rounded-xl">
       <div className="flex flex-col mb-4 sm:mb-8">
         {backTitle && (
           <Link
@@ -33,7 +33,7 @@ export const Paper = ({
         )}
         <div>
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold sm:tracking-tight">
+            <h1 className="text-xl sm:text-xl font-medium sm:tracking-tight">
               {title}
             </h1>
             <p className="text-muted-foreground">{subtitle}</p>
