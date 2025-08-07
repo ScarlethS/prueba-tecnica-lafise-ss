@@ -53,7 +53,8 @@ pnpm dev
 bun dev
 ```
 
-⚠️ Importante: Para poder realizar pruebas correctamente, asegúrate de que el servidor del API REST proporcionado esté corriendo en http://localhost:5566.
+⚠️ Importante: Para poder realizar pruebas correctamente, asegúrate de que el servidor del API REST proporcionado esté corriendo en http://localhost:5566. Para poder visualizar el repo del API [https://github.com/lafise/mobile-frontend-challenge-mock#](https://github.com/lafise/mobile-frontend-challenge-mock#)
+
 Esta aplicación depende de ese API para cargar la información correctamente.
 
 Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.
@@ -84,6 +85,9 @@ El formulario de transacciones se encuentra en [`app/transaction/formTransaction
 - [Documentación Next.js](https://nextjs.org/docs)
 - [Tutorial interactivo Next.js](https://nextjs.org/learn)
 - [Repositorio Next.js en GitHub](https://github.com/vercel/next.js)
+
+## Preview
+![alt text](image.png)
 
 ---
 
