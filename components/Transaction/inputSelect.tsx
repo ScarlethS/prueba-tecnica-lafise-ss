@@ -5,28 +5,63 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Control, FieldValues, Path } from "react-hook-form";
 
-interface InputSelectProps {
+interface InputSelectProps<T extends FieldValues> {
   label?: string;
-  options?: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  options?: any[];
+  control: Control<T>;
+  name: Path<T>;
+  placeholder?: string;
+  className?: string;
 }
 
-const InputSelect = ({ label, options }: InputSelectProps) => {
+const InputSelect = <T extends FieldValues>({
+  label,
+  options = [],
+  control,
+  name,
+  placeholder,
+  className,
+}: InputSelectProps<T>) => {
   return (
     <section className="m-4">
-      <label className="block mb-2 text-sm font-medium text-gray-900 ">
-        {label}
-      </label>
-      <Select>
-        <SelectTrigger className="w-full lg:w-[428px] py-[27px] rounded">
-          <SelectValue placeholder="Entre cuentas propias" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="light">{options}Terceros Lafise</SelectItem>
-          <SelectItem value="dark">Terceros Regional</SelectItem>
-          <SelectItem value="system">Banco Local</SelectItem>
-        </SelectContent>
-      </Select>
+      <FormField
+        control={control}
+        name={name}
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>{label}</FormLabel>
+            <FormControl>
+              <Select
+                {...field}
+                onValueChange={field.onChange}
+                value={field.value}
+              >
+                <SelectTrigger className={`${className} w-full rounded `}>
+                  <SelectValue placeholder={placeholder} />
+                </SelectTrigger>
+                <SelectContent>
+                  {options.map((option) => (
+                    <SelectItem key={option?.value} value={option?.value}>
+                      {option?.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
     </section>
   );
 };
