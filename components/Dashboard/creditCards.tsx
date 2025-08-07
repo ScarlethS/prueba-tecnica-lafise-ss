@@ -35,13 +35,15 @@ export const CreditCard = ({
       </div>
       <div className="flex justify-between items-end pt-4">
         <div>
-          <div className="text-xs font-medium font-[lato]">{name}</div>
+          <div className="text-xs font-medium font-[lato]">
+            {name ?? "user"}
+          </div>
         </div>
         <div className="text-right">
           <div className="text-[7.8px] opacity-80 mb-1 font-[lato]">
             Expire date
           </div>
-          <div className="text-sm font-[lato]">{expirationDate}</div>
+          <div className="text-sm font-[lato]">{expirationDate ?? "00/00"}</div>
         </div>
       </div>
     </div>

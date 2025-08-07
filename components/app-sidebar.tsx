@@ -99,7 +99,6 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const { state } = useSidebar();
-  console.log("Sidebar state:", state);
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
