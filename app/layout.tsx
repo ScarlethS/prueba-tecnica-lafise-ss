@@ -9,6 +9,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { poppins } from "@/fonts/fonts";
 import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(" antialiased ", poppins.className)}>
+        <Toaster richColors position="top-center" />
         <SidebarProvider>
           <AppSidebar />
           <SidebarInset>
