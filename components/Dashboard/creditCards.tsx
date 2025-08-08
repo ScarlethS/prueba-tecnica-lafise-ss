@@ -20,17 +20,27 @@ export const CreditCard = ({
 
     const first4 = cleaned.slice(0, 4);
     const last4 = cleaned.slice(-4);
-    return `${first4} **** **** ${last4}`;
+    const masked = `${first4} **** **** ${last4}`;
+
+    // Inserta espacio de 2px cada 4 caracteres/bloque
+    return masked.split(" ").map((group, i) => (
+      <span key={i} className="mr-[14px]">
+        {group}
+      </span>
+    ));
   };
 
   return (
     <div
       className={`w-full max-w-[353.53px] max-h-[208.36px] rounded-[5px] p-6 pt-2 text-white relative shadow-lg ${color}`}
     >
+      <div className="absolute left-1/2">
+        <Image src="/Group 55772.png" alt="Banco" height={63} width={170} />
+      </div>
       <div className="flex items-center mb-8 h-11 w-20 overflow-hidden rounded">
         <Image src="/frame.png" alt="Banco" height={28} width={87} />
       </div>
-      <div className="mb-6 font-mono tracking-wider text-sm sm:text-xl">
+      <div className="mb-6 font-mono tracking-[2px] text-sm sm:text-xl">
         {maskCardNumber(cardNumber)}
       </div>
       <div className="flex justify-between items-end pt-4">
@@ -39,7 +49,7 @@ export const CreditCard = ({
             {name ?? "user"}
           </div>
         </div>
-        <div className="text-right">
+        <div className="mr-[50%]">
           <div className="text-[7.8px] opacity-80 mb-1 font-[lato]">
             Expire date
           </div>
