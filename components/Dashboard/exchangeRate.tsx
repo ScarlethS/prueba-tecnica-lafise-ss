@@ -81,7 +81,8 @@ export default function ExchangeRate({
   );
 
   return (
-    <div className={`px-6 border-t-1 ${className}`}>
+    <div className={`px-6 ${className}`}>
+      <div className="w-[100%] border-t-1 border-gray-200"></div>
       {/* Título */}
       <h2 className="text-lg font-semibold text-gray-800 my-4">
         Tasa de cambio
@@ -108,7 +109,7 @@ export default function ExchangeRate({
 
       {/* Visualización de tasas */}
       <div className="flex items-center justify-between">
-        <div className="text-sm font-medium text-gray-700">
+        <div className="text-sm font-semibold text-gray-700">
           {fromCurrency.code}: {fromCurrency.rate}
         </div>
 
@@ -120,7 +121,7 @@ export default function ExchangeRate({
           <ArrowLeftRight className="w-4 h-4" />
         </button>
 
-        <div className="text-sm font-medium text-gray-700">
+        <div className="text-sm font-semibold text-gray-700 text-wrap">
           {toCurrency.code}: {toCurrency.rate}
         </div>
       </div>

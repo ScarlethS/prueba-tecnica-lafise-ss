@@ -27,7 +27,7 @@ export function NavProjects({
 }) {
   const pathname = usePathname();
   return (
-    <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+    <SidebarGroup className="group-data-[collapsible=icon]:hidden pt-2">
       <SidebarMenu>
         {projects.map((item) => (
           <SidebarMenuItem key={item.name}>
@@ -59,19 +59,8 @@ export function NavProjects({
                 <ChevronRight className="ml-auto mr-0" />
               </a>
             </SidebarMenuButton>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <SidebarMenuAction showOnHover></SidebarMenuAction>
-              </DropdownMenuTrigger>
-            </DropdownMenu>
           </SidebarMenuItem>
         ))}
-        <SidebarMenuItem>
-          <SidebarMenuButton className="text-sidebar-foreground/70">
-            {/* <MoreHorizontal className="text-sidebar-foreground/70" /> */}
-            {/* <span>More</span> */}
-          </SidebarMenuButton>
-        </SidebarMenuItem>
       </SidebarMenu>
     </SidebarGroup>
   );

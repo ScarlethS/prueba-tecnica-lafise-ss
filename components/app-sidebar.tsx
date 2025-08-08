@@ -102,9 +102,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <div className="flex items-center group-data-[state=closed]/collapsible:hidden">
+        <div className="flex items-center group-data-[state=closed]/collapsible:hidden h-[110px]">
           {state === "expanded" && (
-            <Image src={logo} alt="Team Logo" width={192} height={63} />
+            <Image src={logo} alt="Team Logo" width={290} height={81} />
           )}
         </div>
       </SidebarHeader>
@@ -114,7 +114,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           {state === "expanded" && (
             <>
               <ExchangeRate />
-              <div className="gap-y-2 border-t border-gray-200 py-6">
+              <div className="gap-y-2 py-6">
+                <div className="w-[85%] mx-auto border-t-1 pt-5 border-gray-200">
+                  {" "}
+                </div>
                 <p className="text-xs text-center">
                   IP del Servidor: 190.432.574.23
                 </p>
