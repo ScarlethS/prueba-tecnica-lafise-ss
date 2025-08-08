@@ -110,12 +110,20 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavProjects projects={data.projects} />
-        <ExchangeRate />
-        <div className="gap-y-2 border-t-1 py-6">
-          <p className="text-xs text-center">IP del Servidor: 190.432.574.23</p>
-          <p className="text-xs text-center">
-            Último acceso: 2021/11/21 13:32:11
-          </p>
+        <div className="group-data-[state=closed]/collapsible:hidden">
+          {state === "expanded" && (
+            <>
+              <ExchangeRate />
+              <div className="gap-y-2 border-t border-gray-200 py-6">
+                <p className="text-xs text-center">
+                  IP del Servidor: 190.432.574.23
+                </p>
+                <p className="text-xs text-center">
+                  Último acceso: 2021/11/21 13:32:11
+                </p>
+              </div>
+            </>
+          )}
         </div>
       </SidebarContent>
       <SidebarRail />
